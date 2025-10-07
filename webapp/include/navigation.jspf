@@ -36,6 +36,18 @@
             <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
         </ul>
 
+        <%--
+        **c:는 JSTL Core 라이브러리의 접두어(prefix)**입니다.
+        <c:choose> : Java의 switch문과 비슷한 조건 분기 태그
+            <c:when test="${not empty sessionScope.user}"> : switch문의 case에 해당, 조건이 true면 실행
+                <!-- 로그인 상태: 로그아웃/개인정보수정 버튼 -->
+            </c:when>
+            <c:otherwise> : switch문의 default에 해당, 모든 조건이 false면 실행
+                <!-- 비로그인 상태: 로그인/회원가입 버튼 -->
+            </c:otherwise>
+        </c:choose>
+
+        --%>
         <div class="col-md-3 text-end">
             <c:choose>
                 <c:when test="${not empty sessionScope.user}">
