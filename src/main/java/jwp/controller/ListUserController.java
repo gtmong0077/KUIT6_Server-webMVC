@@ -1,6 +1,7 @@
 package jwp.controller;
 
-import core.db.MemoryUserRepository;
+//import core.db.MemoryUserRepository;
+import jwp.dao.UserDao;
 import jwp.model.User;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Collection;
 
 // @WebServlet("/user/list")
@@ -31,8 +33,13 @@ public class ListUserController implements Controller {
             // 로그인 안 된 경우 뷰 이름 대신 redirect로 로그인 페이지로 리다이렉트 지시
             return "redirect:/user/login.jsp";
         }
-
-        Collection<User> users = MemoryUserRepository.getInstance().findAll();
+        UserDao userDao = new UserDao();
+        Collection<User> users = null;
+        try {
+            users = userDao.findAll();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         req.setAttribute("users", users);
 
         // 내부 포워드할 JSP 경로 반환

@@ -4,18 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="296b80c1-d5af-4e6e-8de2-0e7c92f3fc2b" name="변경" comment="step 1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/DispatcherServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/RequestMapper.java" afterDir="false" />
+    <list default="true" id="296b80c1-d5af-4e6e-8de2-0e7c92f3fc2b" name="변경" comment="step 2">
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/InsertJdbcTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/JdbcTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/PreparedStatementSetter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/RowMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/SampleJdbcTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/SelectJdbcTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/UpdateJdbcTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/jwp/dao/QuestionDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/jwp/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-webMVC.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/java-webMVC.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java-webMVC.iws" beforeDir="false" afterPath="$PROJECT_DIR$/java-webMVC.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/db/MemoryUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/db/MemoryUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/jdbc/ConnectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/jdbc/ConnectionManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/CreateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/CreateUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/ListUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/ListUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/LogoutController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/LogoutController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/UserUpdateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/UserUpdateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/controller/UserUpdateFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/controller/UserUpdateFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jwp/support/context/ContextLoaderListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jwp/support/context/ContextLoaderListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/home.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +101,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="package-info" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -106,10 +115,10 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ModuleEditorState">
     <option name="LAST_EDITED_MODULE_NAME" />
     <option name="LAST_EDITED_TAB_NAME" />
@@ -137,6 +146,7 @@
     "Gradle.KUIT6_Server-webMVC 빌드.executor": "Run",
     "Gradle.KUIT6_Server-webMVC.executor": "Run",
     "Gradle.소스 다운로드.executor": "Run",
+    "JUnit.UserTest.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
@@ -150,12 +160,13 @@
     "project.structure.last.edited": "모듈",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true",
     "애플리케이션.WebServerLauncher.executor": "Run"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="애플리케이션.WebServerLauncher">
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
       <option name="MAIN_CLASS_NAME" />
@@ -204,6 +215,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-webMVC.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="jwp.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="jwp.model" />
+      <option name="MAIN_CLASS_NAME" value="jwp.model.UserTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -218,6 +250,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="애플리케이션.WebServerLauncher" />
+        <item itemvalue="JUnit.UserTest" />
       </list>
     </recent_temporary>
   </component>
@@ -252,7 +285,8 @@
       <updated>1759558303966</updated>
       <workItem from="1759558305139" duration="1319000" />
       <workItem from="1759561331722" duration="330000" />
-      <workItem from="1759561836495" duration="35608000" />
+      <workItem from="1759561836495" duration="39287000" />
+      <workItem from="1761466944289" duration="33248000" />
     </task>
     <task id="LOCAL-00001" summary="step 1">
       <option name="closed" value="true" />
@@ -262,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759819335843</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="step 2">
+      <option name="closed" value="true" />
+      <created>1760090344652</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1760090344652</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,7 +323,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="step 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="step 1" />
+    <MESSAGE value="step 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="step 2" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

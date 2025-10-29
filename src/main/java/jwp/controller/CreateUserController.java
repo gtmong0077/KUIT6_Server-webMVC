@@ -1,6 +1,7 @@
 package jwp.controller;
 
-import core.db.MemoryUserRepository;
+
+import jwp.dao.UserDao;
 import jwp.model.User;
 
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 
 public class CreateUserController implements Controller {
@@ -18,7 +20,12 @@ public class CreateUserController implements Controller {
                 req.getParameter("password"),
                 req.getParameter("name"),
                 req.getParameter("email"));
-        MemoryUserRepository.getInstance().addUser(user);
+        UserDao userDao = new UserDao();
+        try {
+            userDao.insert(user);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return "redirect:/user/list";
     }
     /*@Override

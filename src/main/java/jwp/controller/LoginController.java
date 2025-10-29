@@ -1,6 +1,7 @@
 package jwp.controller;
 
-import core.db.MemoryUserRepository;
+//import core.db.MemoryUserRepository;
+import jwp.dao.UserDao;
 import jwp.model.User;
 import org.springframework.cglib.proxy.Dispatcher;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 
 // @WebServlet("/user/login")
 public class LoginController implements Controller {
@@ -23,9 +25,15 @@ public class LoginController implements Controller {
 
         HttpSession session = req.getSession();
 
-        MemoryUserRepository userRepository = MemoryUserRepository.getInstance();
-        User user = userRepository.findUserById(userId);
-
+        //MemoryUserRepository userRepository = MemoryUserRepository.getInstance();
+        //User user = userRepository.findUserById(userId);
+        UserDao userDao = new UserDao();
+        User user = null;
+        try {
+            user = userDao.findByUserId(userId);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         if (user != null && password.equals(user.getPassword())) {
             session.setAttribute("user", user);
             // 로그인 성공 후 메인 페이지로 리다이렉트

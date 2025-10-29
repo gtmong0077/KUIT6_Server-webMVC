@@ -26,6 +26,7 @@ public class ConnectionManager {
 
     public static Connection getConnection() {
         try {
+            //DB커넥션 pool중에 커넥션 하나를 받아올 수 있다.
             return getDataSource().getConnection();
         } catch (SQLException e) {
             throw new IllegalStateException(e);
