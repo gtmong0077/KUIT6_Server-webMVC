@@ -1,21 +1,26 @@
 package jwp.controller;
 
-import core.mvc.Controller;
 import jwp.dao.QuestionDao;
-import jwp.dao.UserDao;
 import jwp.model.Question;
 import jwp.model.User;
 import jwp.util.UserSessionUtils;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+@Controller
+@RequiredArgsConstructor
+@RequestMapping("/qna")
+public class UpdateQuestionController{
 
-public class UpdateQuestionController implements Controller {
+    private final QuestionDao questionDao ;
 
-    private final QuestionDao questionDao = new QuestionDao();
-
-    @Override
+//    @Override
+    @PostMapping("/update")
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         HttpSession session = req.getSession();
         if (!UserSessionUtils.isLogined(session)) {

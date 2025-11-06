@@ -1,18 +1,23 @@
 package jwp.controller;
 
-import core.mvc.Controller;
 import jwp.dao.UserDao;
 import jwp.model.User;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+@Controller
+@RequiredArgsConstructor
+@RequestMapping("/user")
+public class LoginController{
 
-public class LoginController implements Controller {
+    private final UserDao userDao;
 
-    private final UserDao userDao = new UserDao();
-
-    @Override
+    @PostMapping("/login")
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         HttpSession session = req.getSession();
         String userId = req.getParameter("userId");

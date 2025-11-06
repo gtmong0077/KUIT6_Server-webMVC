@@ -1,17 +1,22 @@
 package jwp.controller;
 
-import core.mvc.Controller;
 import jwp.dao.UserDao;
 import jwp.model.User;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+@Controller
+@RequestMapping("/user")
+@RequiredArgsConstructor
+public class UpdateUserController{
 
-public class UpdateUserController implements Controller {
+    private final UserDao userDao;
 
-    private final UserDao userDao = new UserDao();
-
-    @Override
+    @PostMapping("/update")
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         User modifiedUser = new User(
                 req.getParameter("userId"),

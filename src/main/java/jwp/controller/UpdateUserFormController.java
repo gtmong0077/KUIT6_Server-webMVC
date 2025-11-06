@@ -1,18 +1,23 @@
 package jwp.controller;
 
-import core.mvc.Controller;
 import jwp.dao.UserDao;
 import jwp.model.User;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+@Controller
+@RequiredArgsConstructor
+@RequestMapping("/")
+public class UpdateUserFormController{
 
-public class UpdateUserFormController implements Controller {
+    private final UserDao userDao;
 
-    private final UserDao userDao = new UserDao();
-
-    @Override
+    @PostMapping("/")
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         String userId = req.getParameter("userId");         // 수정되는 user
         User user = userDao.findByUserId(userId);

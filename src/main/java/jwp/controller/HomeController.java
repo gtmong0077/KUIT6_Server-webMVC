@@ -1,21 +1,27 @@
 package jwp.controller;
 
-import core.mvc.Controller;
 import jwp.dao.QuestionDao;
 import jwp.model.Question;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+@Controller
+@RequiredArgsConstructor
+@RequestMapping("/")
+public class HomeController{
 
-public class HomeController implements Controller {
+    private final QuestionDao questionDao ;
 
-    private final QuestionDao questionDao = new QuestionDao();
-
-    @Override
+    @GetMapping("/")
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         List<Question> questions = questionDao.findAll();
         req.setAttribute("questions", questions);
-        return "/home.jsp";
+        return "/home";
     }
+
 }

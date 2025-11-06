@@ -1,16 +1,18 @@
 package jwp.controller;
 
-import core.mvc.Controller;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+@Controller
+@RequestMapping("/user")
+public class LogoutController{
 
-public class LogoutController implements Controller {
-
-    @Override
-    public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        HttpSession session = req.getSession();
+    @GetMapping("/logout")
+    public String LogOut(HttpSession session, HttpServletResponse resp) throws Exception {
         session.removeAttribute("user");
         return "redirect:/";
     }
