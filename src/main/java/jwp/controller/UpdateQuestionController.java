@@ -1,41 +1,41 @@
-package jwp.controller;
-
-import jwp.dao.QuestionDao;
-import jwp.model.Question;
-import jwp.model.User;
-import jwp.util.UserSessionUtils;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-@Controller
-@RequiredArgsConstructor
-@RequestMapping("/qna")
-public class UpdateQuestionController{
-
-    private final QuestionDao questionDao ;
-
-//    @Override
-    @PostMapping("/update")
-    public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        HttpSession session = req.getSession();
-        if (!UserSessionUtils.isLogined(session)) {
-            return "redirect:/users/loginForm";
-        }
-
-        User user = UserSessionUtils.getUserFromSession(session);
-        String questionId = req.getParameter("questionId");
-        Question question = questionDao.findByQuestionId(Integer.parseInt(questionId));
-        if (!question.isSameUser(user)) {
-            throw new IllegalArgumentException("로그인된 유저와 질문 작성자가 다르면 질문을 수정할 수 없습니다.");
-        }
-        question.updateTitleAndContents(req.getParameter("title"),
-                req.getParameter("contents"));
-        questionDao.update(question);
-        return "redirect:/";
-    }
-}
+//package jwp.controller;
+//
+//import jwp.dao.QuestionDao;
+//import jwp.model.Question;
+//import jwp.model.User;
+//import jwp.util.UserSessionUtils;
+//import lombok.RequiredArgsConstructor;
+//import org.springframework.stereotype.Controller;
+//import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//
+//import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
+//import javax.servlet.http.HttpSession;
+//@Controller
+//@RequiredArgsConstructor
+//@RequestMapping("/qna")
+//public class UpdateQuestionController{
+//
+//    private final QuestionDao questionDao ;
+//
+////    @Override
+//    @PostMapping("/update")
+//    public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+//        HttpSession session = req.getSession();
+//        if (!UserSessionUtils.isLogined(session)) {
+//            return "redirect:/users/loginForm";
+//        }
+//
+//        User user = UserSessionUtils.getUserFromSession(session);
+//        String questionId = req.getParameter("questionId");
+//        Question question = questionDao.findByQuestionId(Integer.parseInt(questionId));
+//        if (!question.isSameUser(user)) {
+//            throw new IllegalArgumentException("로그인된 유저와 질문 작성자가 다르면 질문을 수정할 수 없습니다.");
+//        }
+//        question.updateTitleAndContents(req.getParameter("title"),
+//                req.getParameter("contents"));
+//        questionDao.update(question);
+//        return "redirect:/";
+//    }
+//}

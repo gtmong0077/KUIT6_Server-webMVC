@@ -17,46 +17,25 @@ public class UserDao{
     private final EntityManager em;
     //위에 requiredArgsConstructor 어노테이션으로 인해 자동으로 생성자가 생겼다고 생각해도됌
     @Transactional
-    public void insert(User user) throws SQLException {
+    public void insert(User user){
         em.persist(user);
-//        String sql = "INSERT INTO USERS VALUES (?, ?, ?, ?)";
-//        PreparedStatementSetter pstmtSetter = pstmt -> {
-//            pstmt.setString(1, user.getUserId());
-//            pstmt.setString(2, user.getPassword());
-//            pstmt.setString(3, user.getName());
-//            pstmt.setString(4, user.getEmail());
-//        };
-//        jdbcTemplate.update(sql, pstmtSetter);
     }
-
+    @Transactional
     public void update(User user) throws SQLException {
-//        String sql = "UPDATE USERS SET password = ?, name = ?, email = ? WHERE userId = ?";
-//        PreparedStatementSetter pstmtSetter = pstmt -> {
-//            pstmt.setString(1, user.getPassword());
-//            pstmt.setString(2, user.getName());
-//            pstmt.setString(3, user.getEmail());
-//            pstmt.setString(4, user.getUserId());
-//        };
-//        jdbcTemplate.update(sql, pstmtSetter);
         em.merge(user);
     }
-
-    public void delete(User user) {
-//        String sql = "DELETE FROM USERS WHERE userId = ?";
-//        PreparedStatementSetter pstmtSetter = pstmt -> {
-//            pstmt.setString(1, user.getUserId());
-//        };
-//        jdbcTemplate.update(sql, pstmtSetter);
-
-    }
+//    @Transactional
+//    public void delete(User user) {
+//        // JPA의 삭제 로직으로 변경
+//        // em.remove()는 영속성 컨텍스트에 관리되는 객체로만 가능합니다.
+//        // merge 후 remove 하거나, find로 조회 후 remove 합니다.
+//        User managedUser = em.find(User.class, user.getUserId());
+//        if (managedUser != null) {
+//            em.remove(managedUser);
+//        }
+//    }
 
     public List<User> findAll() {
-//        String sql = "SELECT * FROM USERS";
-//        RowMapper rowMapper = rs -> new User(rs.getString("userId"),
-//                rs.getString("password"),
-//                rs.getString("name"),
-//                rs.getString("email"));
-//        return jdbcTemplate.query(sql, rowMapper);
         return em.createQuery("select u from User u",User.class).getResultList();
     }
 
